@@ -18,7 +18,7 @@ cp -rf "${BASEDIR}/.oh-my-zsh/custom/." "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
 ## nvim
 #copy nvim files to their directory
-for f in ('.zshrc' '.p10k.zsh' '.condarc');do
+for f ('.zshrc' '.p10k.zsh' '.condarc');do
 	cp -f "${BASEDIR}/${f}" "${HOME}/"
 done
 cp -r "${BASEDIR}/.config/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"
