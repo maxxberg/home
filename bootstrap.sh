@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 BASEDIR="$(dirname ${PWD}/${0})"
 BASEDIR="$(echo ${BASEDIR} | sed -e 's/\/\.$//g' )"
 
@@ -7,12 +9,15 @@ BASEDIR="$(echo ${BASEDIR} | sed -e 's/\/\.$//g' )"
 if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+if [[ "${ZSH_THEME:-empty}" != 'powerlevel10k/powerlevel10k' ]]; then
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
 
 # copy *.zsh files to custom
-if [[ -n "${ZSH_CUSTOM}" ]]; then
-	cp -rf "${BASEDIR}/.oh-my-zsh/custom" "${ZSH_CUSTOM}"
-fi
+cp -rf "${BASEDIR}/.oh-my-zsh/custom/." "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
 ## nvim
 #copy nvim files to their directory
+cp -f .zshrc .p10k.zsh "${HOME}/"
 cp -r "${BASEDIR}/.config/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"
+
