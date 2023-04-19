@@ -1,0 +1,7 @@
+alias vim="nvim"
+alias ll="ls -la"
+alias gosrc="cd ~/src"
+alias gogit="cd ~/src/git"
+#alias ansenv="source ~/src/git/ansible-stuff/activate"
+alias ansenv="conda activate ansenv"
+#alias maxxberg.ops.prod="podman run -it --rm --pull=newer -v ~/.ssh:/root/.ssh ghcr.io/maxxberg/maxxberg.ops:main ansible-playbook --ask-vault-pass -i inventory/prod.yml playbooks/cloud_install.yaml"
